@@ -1,0 +1,100 @@
+@keyframes rotation_forward
+	from
+		opacity 1
+		transform rotate(0)
+	50%
+		opacity 0
+	to
+		opacity 1
+		transform rotate(360deg)
+		
+@keyframes rotation_reverse
+	from
+		opacity 0
+		transform rotate(0)
+	50%
+		opacity 1
+	to
+		opacity 0
+		transform rotate(-360deg)
+		
+@keyframes increase_n1
+	from
+		width 70px
+		height 70px
+	to
+		width 100px
+		height 100px
+		
+@keyframes increase_n2
+	from
+		width 70px
+		height 70px
+	to
+		width 115px
+		height 115px
+		
+@keyframes increase_n3
+	from
+		width 70px
+		height 70px
+	to
+		width 130px
+		height 130px
+		
+@keyframes increase_n4
+	from
+		width 70px
+		height 70px
+	to
+		width 145px
+		height 145px
+		
+@keyframes accelerate_forward
+	from
+		transform rotate(0)
+	to
+		transform rotate(360deg)
+		
+@keyframes accelerate_reverse
+	from
+		opacity 1
+		transform rotate(0)
+	50%
+		opacity 1
+	to
+		opacity 0
+		transform rotate(-360deg)
+		
+.container
+.circle
+	position absolute
+	left 0
+	right 0
+	top 0
+	bottom 0
+	margin auto
+		
+.container
+	width 150px
+	height 150px
+	
+.circle
+	border-radius 50%
+		
+for i in (1..4)
+	.circle_n{i}
+		width (i * 15 + 85)px
+		height (i * 15 + 85)px
+		if (i == 1)
+			border-top 5px solid rgba(222,87,61,0.6)
+			animation increase_n1 .7s linear, accelerate_reverse 3s cubic-bezier(.73,.04,.81,.35) .7s, rotation_reverse (i * 250 + 500)ms linear 3.7s infinite
+		else if (i == 2)
+			border-left 5px solid rgba(222,87,61,0.6)
+			animation increase_n2 .7s linear, accelerate_forward 3s cubic-bezier(.73,.04,.81,.35) .7s, rotation_forward (i * 250 + 500)ms linear 3.7s infinite
+		else if (i == 3)
+			border-bottom 5px solid rgba(222,87,61,0.6)
+			animation increase_n3 .7s linear, accelerate_reverse 3s cubic-bezier(.73,.04,.81,.35) .7s, rotation_reverse (i * 250 + 500)ms linear 3.7s infinite
+		else if (i == 4)
+			border-right 5px solid rgba(222,87,61,0.6)
+			animation increase_n4 .7s linear, accelerate_forward 3s cubic-bezier(.73,.04,.81,.35) .7s, rotation_forward (i * 250 + 500)ms linear 3.7s infinite
